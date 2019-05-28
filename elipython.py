@@ -1,9 +1,20 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
+loginData = [
+    {
+        'User': 'Dan',
+        'Password': 'supersafe'
+    },
+    {
+        'User': 'Olaf',
+        'Password': 'supersafe'
+    }
+]
+
 @app.route("/")
 def login():
-    return render_template('index.html')
+    return render_template('index.html', loginData=loginData)
 
 @app.route("/search")
 def search():
