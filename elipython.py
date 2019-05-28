@@ -11,7 +11,7 @@ def hello2():
 
 @app.route("/dan2")
 def hello3():
-    return "gucki3"
+    return "gucki5"
 
 if __name__ == '--main--':
     app.run(debug=True)
