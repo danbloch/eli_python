@@ -1,1 +1,1 @@
-web: gunicorn app:elipython
+web: gunicorn app:app
