@@ -1,16 +1,16 @@
 {% extends "layout.html" %}
 {% block header%}
-<script>
-  function validate(myform){
-    var isValid=false;
-    {% for credential in loginData %}
-    if(myForm.user.value=="{{credential.User}}"&&myForm.password.value=="{{credential.Password}}"){
-      isValid=true;
+  <script>
+    function validate(myform){
+      var isValid=false;
+      {% for credential in loginData %}
+      if(myForm.user.value=="{{credential.User}}"&&myForm.password.value=="{{credential.Password}}"){
+        isValid=true;
+      }
+      {% endfor %}
+      alert(isValid)
     }
-    {% endfor %}
-    alert(isValid)
-}
-</script>
+  </script>
 {% endblock header %}
 {% block content %}
   <h1>Login</h1>
