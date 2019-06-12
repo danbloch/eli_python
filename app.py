@@ -1,13 +1,17 @@
 from flask import Flask, render_template, url_for
+from forms import LoginForm
+
 app = Flask(__name__)
+
+#app.config['SECRET_KEY']=''
 
 loginData = [
     {
-        'User': 'Dan',
+        'User': 'dan.bloch@europace.de',
         'Password': 'supersafe'
     },
     {
-        'User': 'Olaf',
+        'User': 'olaf.hausmann@europace.de',
         'Password': 'supersafe'
     }
 ]
@@ -15,6 +19,10 @@ loginData = [
 @app.route("/")
 def login():
     return render_template('index.html', loginData=loginData, title='login')
+
+@app.route("/login")
+def login2():
+    form = LoginForm()
 
 @app.route("/search")
 def search():
