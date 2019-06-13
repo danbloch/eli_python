@@ -16,11 +16,11 @@ loginData = [
     }
 ]
 
-@app.route("/")
+@app.route("/login")
 def index():
     return render_template('index.html', loginData=loginData, title='Startseite')
 
-@app.route("/login", methods=["GET","POST"])
+@app.route("/", methods=["GET","POST"])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
