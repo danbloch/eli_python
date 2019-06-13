@@ -1,9 +1,9 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, flash, redirect
 from forms import LoginForm
 
 app = Flask(__name__)
 
-#app.config['SECRET_KEY']=''
+app.config['SECRET_KEY']='dan'
 
 loginData = [
     {
@@ -17,12 +17,16 @@ loginData = [
 ]
 
 @app.route("/")
-def login():
-    return render_template('index.html', loginData=loginData, title='login')
+def index():
+    return render_template('index.html', loginData=loginData, title='Startseite')
 
-@app.route("/login")
-def login2():
+@app.route("/login", methods=["GET","POST"])
+def login():
     form = LoginForm()
+    if form.validate_on_submit():
+        flash(f'Account created for {form.username.data}!', 'success')
+        return redirect(url_for('index'))
+    return render_template('login.html', title='login', form=form)
 
 @app.route("/search")
 def search():
