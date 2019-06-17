@@ -24,8 +24,8 @@ def index():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        flash(f'Account created for {form.username.data}!', 'success')
-        return redirect(url_for('index'))
+        flash(f'Login succesful for {form.username.data}!', 'success')
+        return redirect(url_for('search'))
     return render_template('login.html', title='login', form=form)
 
 @app.route("/search")

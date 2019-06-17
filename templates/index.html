@@ -13,14 +13,16 @@
   </script>
 {% endblock header %}
 {% block content %}
-  <h1>Login</h1>
   <div class="content-section">
-    <form id="myForm">
-      <fieldset class="form-group">
-        <legend class="border-bottom">Login</legend>
-        <input type="text" name="user"><br/>
-        <input type="password" name="password"><br/><br/>
-        <input type="button" value="OK" onclick="validate(myForm);"
-      </fieldset>
-  </form>
+    <h1>Login</h1>
+    <div class="content-section">
+      <form id="myForm">
+        <fieldset class="form-group">
+          <legend class="border-bottom">Login</legend>
+          <input type="text" name="user"><br/>
+          <input type="password" name="password"><br/><br/>
+          <input type="button" value="OK" onclick="validate(myForm);"
+        </fieldset>
+    </form>
+  </div>
 {% endblock content %}
