@@ -1,14 +1,7 @@
-from flask import Flask, render_template, url_for, flash, redirect
-from flask_sqlalchemy import SQLAlchemy
-from forms import LoginForm
+from flask import render_template, url_for, flash, redirect
+from elipython import app
+from elipython.forms import LoginForm
 
-
-app = Flask(__name__)
-
-app.config['SECRET_KEY']='5vgoY2SmQribsLRFE3xt7jr9cSiEdxhf'
-app.config['SQLALCHEMY_DATABSE_URI']='sqlite:///site.db'
-
-db=SQLAlchemy(app)
 
 loginData = [
     {
@@ -43,6 +36,3 @@ def search():
 @app.route("/result")
 def result():
     return render_template('result.html', title='result')
-
-if __name__ == '__main__':
-    app.run(debug=True)
