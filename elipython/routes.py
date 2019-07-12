@@ -19,6 +19,10 @@ def index():
     return render_template('index.html', loginData=loginData, title='Startseite')
 
 @app.route("/", methods=["GET","POST"])
+def bootcamp():
+    return render_template('bootcamp.html', title='bootcamp')
+
+@app.route("/meiner", methods=["GET","POST"])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
