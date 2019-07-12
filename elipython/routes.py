@@ -1,4 +1,4 @@
-from flask import render_template, url_for, flash, redirect
+from flask import render_template, url_for, flash, redirect, request
 from elipython import app
 from elipython.forms import LoginForm
 
@@ -20,7 +20,7 @@ def index():
 
 @app.route("/", methods=["GET","POST"])
 def bootcamp():
-    return render_template('bootcamp.html', title='bootcamp')
+    return render_template('bootcamp.html', title='bootcamp', name='Dan')
 
 @app.route("/meiner", methods=["GET","POST"])
 def login():
@@ -37,6 +37,6 @@ def login():
 def search():
     return render_template('search.html', title='search')
 
-@app.route("/result")
+@app.route("/result", methods=["GET","POST"])
 def result():
-    return render_template('result.html', title='result')
+    return render_template('result.html', title='result', myform=request.form)

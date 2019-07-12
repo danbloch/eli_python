@@ -1,1 +1,34 @@
-<h1>hello world</h1> 
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+   <meta charset="utf-8">
+   <title>About Flask</title>
+   <style>
+     #meinBild{
+       width:512px;
+       height:384px;
+     }
+   </style>
+ </head>
+ <body>
+   <form action="/result" method="post">
+     Firstname:<br/>
+     <input type="text" name="firstname"><br/><br/>
+     Lastname:<br/>
+     <input type="text" name="lastname"><br/><br/>
+     Lieblingsfarbe<br/>
+     <select name="lieblingsfarbe">
+       <option value="red">red</option>
+       <option value="green">green</option>
+       <option value="blue">blue</option>
+     </select><br/>
+     <input type="submit">
+   </form>
+
+   <h1> Hallo {{name}} </h1>
+   <img id="meinBild" src="{{ url_for('static', filename='Bild.jpg') }}"/>
+   <p> Flask is a micro web framework written in Python.</p>
+   <p> Applications that use the Flask framework include Pinterest,
+     LinkedIn, and the community web page for Flask itself.</p>
+ </body>
+</html>
