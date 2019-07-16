@@ -1,6 +1,6 @@
 from flask import render_template, url_for, flash, redirect, request
 from elipython import app
-from elipython.forms import LoginForm
+from elipython.forms import LoginForm, Taschenrechner
 
 
 loginData = [
@@ -20,7 +20,9 @@ def index():
 
 @app.route("/", methods=["GET","POST"])
 def bootcamp():
-    return render_template('bootcamp.html', title='bootcamp', name='Dan')
+    form = Taschenrechner()
+    form.validate_on_submit()
+    return render_template('bootcamp.html', title='bootcamp', name='Dan', form=form)
 
 @app.route("/meiner", methods=["GET","POST"])
 def login():
