@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
   <div class="content-section">
-    <h1>Result</h1>
-    <h1 style="color:{{myform['lieblingsfarbe']}}">Hallo {{myform['firstname']}} {{myform['lastname']}}
+    <h1>Das Ergebnis lautet: {{ergebnis}}</h1>
   </div>
+  <img id="meinBild" src="{{ url_for('static', filename='Bild.jpg') }}"/>
 {% endblock content %}

@@ -11,3 +11,8 @@
 body{
   font-family: 'Europace Sans Light';
 }
+
+#meinBild{
+  width:512px;
+  height:384px;
+}

@@ -11,5 +11,5 @@ class LoginForm(FlaskForm):
 class Taschenrechner(FlaskForm):
     wert1=DecimalField('Erster Wert', validators=[DataRequired()])
     wert2=DecimalField('Zweiter Wert', validators=[DataRequired()])
-    meinoperator=SelectField('Operation', choices=[('+', '+'), ('-', '-'), ('x', '*'), ('/', '/')])
+    meinoperator=SelectField('Operation', choices=[('+', '+'), ('-', '-'), ('*', '*'), ('/', '/')])
     submit=SubmitField('Rechnen')

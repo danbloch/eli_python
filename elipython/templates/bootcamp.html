@@ -1,54 +1,48 @@
 {% extends "layout.html" %}
-{% block header%}
-   <style>
-     #meinBild{
-       width:512px;
-       height:384px;
-     }
-   </style>
-{% endblock header%}
 {% block content %}
 
 <!--<h1>Login</h1>-->
 <div class="content-section">
-  <form class="" method="POST" action="" novalidate>
+  <form class="" method="POST" action="/result" novalidate>
     {{ form.hidden_tag() }}
     <fieldset class="form-group">
       <legend class="border-bottom mb-4">Rechner</legend>
-      <div class="form-group">
-        {{form.wert1.label(class="form-control-label")}}
-        {% if form.wert1.errors %}
-          {{form.wert1(class="form-control form-control-lg is-invalid")}}
-          <div class="invalid-feedback">
-            {% for error in form.wert1.errors %}
-              <span>{{ error }}</span>
-            {% endfor %}
-          </div>
-        {% else %}
-          {{form.wert1(class="form-control form-control-lg")}}
-        {% endif %}
-      </div>
-      <div class="form-group">
-        {{form.meinoperator.label(class="form-control-label")}}
-        {{form.meinoperator(class="form-control form-control-lg")}}
-      </div>
-      <div class="form-group">
-        {{form.wert2.label(class="form-control-label")}}
-        {% if form.wert2.errors %}
-          {{form.wert2(class="form-control form-control-lg is-invalid")}}
-          <div class="invalid-feedback">
-            {% for error in form.wert2.errors %}
-              <span>{{ error }}</span>
-            {% endfor %}
-          </div>
-        {% else %}
-          {{form.wert2(class="form-control form-control-lg")}}
-        {% endif %}
+      <div class="form-inline">
+        <div class="form-group ml-4 mr-4">
+          <!--{{form.wert1.label(class="form-control-label")}}-->
+          {% if form.wert1.errors %}
+            {{form.wert1(class="form-control form-control-lg is-invalid")}}
+            <div class="invalid-feedback">
+              {% for error in form.wert1.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{form.wert1(class="form-control form-control-lg")}}
+          {% endif %}
+        </div>
+        <div class="form-group mr-4">
+          <!--{{form.meinoperator.label(class="form-control-label")}}-->
+          {{form.meinoperator(class="form-control form-control-lg")}}
+        </div>
+          <div class="form-group">
+            <!--{{form.wert2.label(class="form-control-label")}}-->
+            {% if form.wert2.errors %}
+              {{form.wert2(class="form-control form-control-lg is-invalid")}}
+              <div class="invalid-feedback">
+                {% for error in form.wert2.errors %}
+                  <span>{{ error }}</span>
+                  {% endfor %}
+              </div>
+              {% else %}
+                {{form.wert2(class="form-control form-control-lg")}}
+          {% endif %}
+        </div>
       </div>
 
     </fieldset>
 
-    <div class="form-group">
+    <div class="form-group ml-4">
       {{form.submit(class="btn btn-outline-info")}}
     </div>
 </form>
@@ -56,21 +50,16 @@
 <!--
    <form action="/result" method="post">
      Firstname:<br/>
-     <input type="text" name="firstname"><br/><br/>
+     <input type="text" name="firstname"/><br/><br/>
      Lastname:<br/>
-     <input type="text" name="lastname"><br/><br/>
+     <input type="text" name="lastname"/><br/><br/>
      Lieblingsfarbe:
      <select name="lieblingsfarbe">
        <option value="red">red</option>
        <option value="green">green</option>
        <option value="blue">blue</option>
      </select><br/><br/>
-     <input type="submit">
+     <input type="submit"/>
+   </form>
 -->
-   <h1> Hallo {{name}} </h1>
-   <img id="meinBild" src="{{ url_for('static', filename='Bild.jpg') }}"/>
-   <p> Flask is a micro web framework written in Python.</p>
-   <p> Applications that use the Flask framework include Pinterest,
-     LinkedIn, and the community web page for Flask itself.</p>
-
 {% endblock content %}
