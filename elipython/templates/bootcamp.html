@@ -10,8 +10,8 @@
       <div class="form-inline">
         <div class="form-group ml-4 mr-4">
           <!--{{form.wert1.label(class="form-control-label")}}-->
-          {% if form.wert1.errors %}
-            {{form.wert1(class="form-control form-control-lg is-invalid")}}
+        {% if form.wert1.errors %}
+          {{form.wert1(class="form-control form-control-lg is-invalid")}}
             <div class="invalid-feedback">
               {% for error in form.wert1.errors %}
                 <span>{{ error }}</span>
@@ -45,8 +45,8 @@
     <div class="form-group ml-4">
       {{form.submit(class="btn btn-outline-info")}}
     </div>
-</form>
-
+  </form>
+</div>
 <!--
    <form action="/result" method="post">
      Firstname:<br/>
