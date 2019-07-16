@@ -1,1 +1,13 @@
+@font-face {
+  font-family: 'Europace Sans Light';
+  src: url('../static/fonts/EuropaceSans-Light.eot');
+  src: url('../static/fonts/EuropaceSans-Light.eot?#iefix') format('embedded-opentype'),
+  url('../static/fonts/EuropaceSans-Light.woff2') format('woff2'),
+  url('../static/fonts/EuropaceSans-Light.woff') format('woff'),
+  url('../static/fonts/EuropaceSans-Light.ttf') format('truetype');
+  font-style: normal;
+}
 
+body{
+  font-family: 'Europace Sans Light';
+}
