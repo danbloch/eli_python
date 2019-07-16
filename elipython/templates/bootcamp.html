@@ -8,7 +8,7 @@
     <fieldset class="form-group">
       <legend class="border-bottom mb-4">Rechner</legend>
       <div class="form-inline">
-        <div class="form-group ml-4 mr-4">
+        <div class="form-group mr-4">
           <!--{{form.wert1.label(class="form-control-label")}}-->
         {% if form.wert1.errors %}
           {{form.wert1(class="form-control form-control-lg is-invalid")}}
@@ -42,7 +42,7 @@
 
     </fieldset>
 
-    <div class="form-group ml-4">
+    <div class="form-group">
       {{form.submit(class="btn btn-outline-info")}}
     </div>
   </form>
