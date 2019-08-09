@@ -16,7 +16,7 @@ def result():
         wert2=request.form['wert2']
         meinoperator=request.form['meinoperator']
         ergebnis=eval(wert1+meinoperator+wert2)
-        return render_template('result.html', title='result', myform=request.form, ergebnis=ergebnis)
+        return render_template('result.html', title='result', ergebnis=ergebnis)
     return render_template('result.html', title='result', ergebnis="Fehler")
 
 @app.route("/meiner", methods=["GET","POST"])
