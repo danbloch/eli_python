@@ -1,4 +1,4 @@
-from flask import render_template, url_for, flash, redirect, request
+from flask import render_template, url_for, flash, redirect, request, session
 from elipython import app
 from elipython.forms import LoginForm, Taschenrechner
 import api_client
@@ -40,13 +40,19 @@ def index():
 def search():
     return render_template('search.html', title='search')
 
+@app.route("/angebote")
+def angebote():
+    if session.get('token') is None:
+        return redirect(url_for('index'))
+    return render_template('angebote.html', title='search')
+
 @app.route("/resultlogin", methods=["GET","POST"])
 def resultlogin():
     user=request.form['username']
     password=request.form['password']
-    r=api_client.getToken(user, password)
-    if r.status_code/100==2:
-        token=r.content
+    token, loginSuccessful=api_client.getToken(user, password)
+    if loginSuccessful:
+        session['token']=token
+        return render_template('resultlogin.html', title='Login Result')
     else:
-        token="invalid login"
-    return render_template('resultlogin.html', token=token, title='Login Result')
+        return render_template('loginform.html', title='Startseite')
