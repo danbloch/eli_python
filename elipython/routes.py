@@ -1,6 +1,7 @@
 from flask import render_template, url_for, flash, redirect, request
 from elipython import app
 from elipython.forms import LoginForm, Taschenrechner
+import api_client
 
 @app.route("/", methods=["GET","POST"])
 def bootcamp():
@@ -33,8 +34,19 @@ def login():
 
 @app.route("/login")
 def index():
-    return render_template('index.html', loginData=loginData, title='Startseite')
+    return render_template('loginform.html', title='Startseite')
 
 @app.route("/search")
 def search():
     return render_template('search.html', title='search')
+
+@app.route("/resultlogin", methods=["GET","POST"])
+def resultlogin():
+    user=request.form['username']
+    password=request.form['password']
+    r=api_client.getToken(user, password)
+    if r.status_code/100==2:
+        token=r.content
+    else:
+        token="invalid login"
+    return render_template('resultlogin.html', token=token, title='Login Result')
